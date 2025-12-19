@@ -127,29 +127,36 @@ border:solid 1px;
 .slider-button.right {
   right: 10px;
 }
-/***TOP.page(更新12/19)***/
-/* /* 1. 名前と職種・肩書 Header.css(更新12/19)　 */
+
+/*** TOP.page (更新 12/19) ***/
 .header {
-  padding-top: 2rem;   /* py-8 */
+  /* 重なり順の解決策：画像より手前に出す */
+  position: relative;
+  z-index: 20;
+
+  /* レイアウト調整 */
+  padding-top: 2rem;      /* py-8相当 */
   padding-bottom: 2rem;
-  border-bottom: 1px solid #d1d5db; /* border-gray-300 */
-  margin-bottom: 2rem; /* mb-8 */
-  text-align: center;
+  border-bottom: 1px solid #d1d5db; /* border-gray-300相当 */
+  margin-bottom: 2rem;    /* mb-8相当 */
+  text-align: center;     /* 中央揃え */
 }
 
 .header h1 {
-  font-size: 3rem;     /* text-5xl */
-  font-weight: 800;    /* font-extrabold */
-  letter-spacing: -0.015em; /* tracking-tight */
-  color: #111827;      /* text-gray-900 */
+  /* 名前部分のスタイル */
+  font-size: 3rem;        /* text-5xl相当 */
+  font-weight: 800;       /* font-extrabold相当 */
+  letter-spacing: -0.015em; /* tracking-tight相当 */
+  color: #111827;         /* text-gray-900相当 */
+  line-height: 1.2;       /* 行間の調整 */
 }
 
 .header p {
-  font-size: 1.25rem;  /* text-xl */
-  margin-top: 0.5rem;  /* mt-2 */
-  color: #4338ca;      /* text-indigo-700 */
-  font-weight: 600;    /* font-semibold */
+  /* 肩書き部分のスタイル */
+  font-size: 1.25rem;     /* text-xl相当 */
+  margin-top: 0.5rem;     /* mt-2相当 */
+  color: #4338ca;         /* text-indigo-700相当 */
+  font-weight: 600;       /* font-semibold相当 */
 }
-/***ここまで***/
 
 

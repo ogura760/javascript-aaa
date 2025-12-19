@@ -8,7 +8,7 @@ import ImageSlider from './components/ImageSlider';
 import ToTopButton from './components/ToTopButton';
 
 //***小倉追加(12/19)***/
-import { TextEffect, TextEffect3D } from "./components/TextEffect";
+import { TextEffect, TextEffect3D,TextEffectRotate } from "./components/TextEffect";
 
 
 
@@ -61,21 +61,55 @@ export default function HomePage() {
   
   return (
     // Tailwind CSSでレイアウトを適用（最大幅を設定し、中央寄せ）
+    /*
     <main className="container mx-auto p-4 md:p-8 max-w-4xl font-sans text-gray-800">
+    */
+   <main className="w-full font-sans text-gray-800">
       <HamburgerMenu />
       <ToTopButton />
+
+      {/**ヘッダー */}
       {/* 1. 名前と職種・肩書 */}
-        <header className="header">
-          <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
-            <TextEffect text={profile.name} delay={200} />
-          </h1>
-          <p className="text-xl mt-2 text-indigo-700 font-semibold">
-            <TextEffect text={profile.title} delay={600} />
-          </p>
-        </header>
+      <header className="header">
+        <h1>
+          {/* 回転しながら登場するエフェクト */}
+          <TextEffectRotate text={profile.name} delay={200} />
+        </h1>
+        <p>
+          {/* 下から浮き上がるエフェクト */}
+          <TextEffect text={profile.title} delay={600} />
+        </p>
+      </header>
+    { /**ヘッダーここまで */}
 
+    {/* 2. 議員画像とキャッチコピー */}
+    <section className="relative w-full aspect-[4/3] overflow-hidden bg-white">
+      {/* 背景画像エリア */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/img/test1.jpg" //画像パスを適宜変更
+          alt="メイン背景" 
+          className="w-full h-full object-contain object-center" 
+        />
+        {/* 白文字を際立たせる黒いグラデーション */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+      </div>
+
+      {/* キャッチコピー（画像の上に重ねる） */}
+      <div className="absolute bottom-8 left-8 md:left-16 z-20 text-white drop-shadow-2xl">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight italic tracking-tight">
+          {/*md:最小、lg:通常、*/}
+          <TextEffectRotate text="誰も取り残さない日本を、" delay={200} />
+          <br />
+          <TextEffectRotate text="京都から。" delay={800} />
+        </h1>
+      </div>
+    </section>
+
+
+    {/*
       <ImageSlider />
-
+    */}
       {/* 2. 自己紹介とモットー/熱意 */}
       <section className="mb-10 p-6 bg-white shadow-lg rounded-lg">
         <h2 className="text-2xl font-bold mb-4 border-b pb-2 text-indigo-600">

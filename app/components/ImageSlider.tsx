@@ -38,4 +38,6 @@ export default function ImageSlider() {
   </button>
 </div>
   );
+
+  
 };
