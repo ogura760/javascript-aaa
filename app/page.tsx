@@ -7,6 +7,11 @@ import HamburgerMenu from './components/HambergerMenu';
 import ImageSlider from './components/ImageSlider';
 import ToTopButton from './components/ToTopButton';
 
+//***小倉追加(12/19)***/
+import { TextEffect, TextEffect3D } from "./components/TextEffect";
+
+
+
 // 動的 SSR（Vercel 安定）
 export const dynamic = 'force-dynamic';
 
@@ -60,14 +65,14 @@ export default function HomePage() {
       <HamburgerMenu />
       <ToTopButton />
       {/* 1. 名前と職種・肩書 */}
-      <header className="py-8 border-b border-gray-300 mb-8 text-center">
-        <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
-          {profile.name}
-        </h1>
-        <p className="text-xl mt-2 text-indigo-700 font-semibold">
-          {profile.title}
-        </p>
-      </header>
+        <header className="header">
+          <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
+            <TextEffect text={profile.name} delay={200} />
+          </h1>
+          <p className="text-xl mt-2 text-indigo-700 font-semibold">
+            <TextEffect text={profile.title} delay={600} />
+          </p>
+        </header>
 
       <ImageSlider />
 
