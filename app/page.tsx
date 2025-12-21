@@ -84,28 +84,37 @@ export default function HomePage() {
 
     {/* 2. 議員画像とキャッチコピー */}
     <section className="relative w-full aspect-[4/3] overflow-hidden bg-white">
+
       {/* 背景画像エリア */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/img/test1.jpg" //画像パスを適宜変更
-          alt="メイン背景" 
-          className="w-full h-full object-contain object-center" 
+          src="/img/test1.jpg"
+          alt="メイン背景"
+          className="w-full h-full object-cover object-center"
         />
-        {/* 白文字を際立たせる黒いグラデーション */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
       </div>
 
-      {/* キャッチコピー（画像の上に重ねる） */}
+      {/* ✅ 人物画像（背景の外に出す） */}
+      <div className="absolute bottom-0 right-0 w-full flex justify-end translate-x-50 z-10">
+        <img
+          src="/img/job_seijika_woman.png"
+          alt="議員写真"
+          className="w-[40%] md:w-[30%] lg:w-[25%] object-contain drop-shadow-2xl"
+        />
+      </div>
+
+      {/* キャッチコピー */}
       <div className="absolute bottom-8 left-8 md:left-16 z-20 text-white drop-shadow-2xl">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight italic tracking-tight">
-          {/*md:最小、lg:通常、*/}
           <TextEffectRotate text="誰も取り残さない日本を、" delay={200} />
           <br />
           <TextEffectRotate text="京都から。" delay={800} />
         </h1>
       </div>
-    </section>
 
+    </section>
+    {/* 画像とキャッチコピーここまで */}
 
     {/*
       <ImageSlider />
