@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+//12/22　小倉追加
+import { HamburgerMenuEffect } from "./HamburgerMenuEffect";
+//12/22 小倉追加ここまで
 
 const sns = { 
     x: "https://x.com/your_x_account", 
@@ -29,17 +32,18 @@ export default function HamburgerMenu() {
       )}
 
       {/* スライドメニュー */}
-        <nav className={`menu ${open ? "open" : ""}`}>
-            <ul className="menulist">
-                <li><a href="/">トップページ</a></li>
-                <li><a href="/history">過去の歴史</a></li>
-                <li><a href="/blog">ブログ</a></li>
-                <li><a href="/contact">お問い合わせ</a></li>
-                <li><a href={sns.x} target="_blank" rel="noopener noreferrer">X</a></li>
-                <li><a href={sns.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href={sns.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            </ul>
-        </nav>
+      {/* ✅ アニメーション付きメニュー */}
+      <HamburgerMenuEffect open={open}>
+        <ul className="menulist">
+          <li><a href="/">トップページ</a></li>
+          <li><a href="/history">過去の歴史</a></li>
+          <li><a href="/blog">ブログ</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+          <li><a href={sns.x} target="_blank" rel="noopener noreferrer">X</a></li>
+          <li><a href={sns.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href={sns.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </HamburgerMenuEffect>
     </>
   );
 }
